@@ -15,3 +15,27 @@ functions: # las funciones de acceso a nuestra app. Esto funciona como una espec
       - httpApi: # Evento tipo http (Accediendo a la función mediante una llamada http)
           path: / # Path o dirección url de acceso a la función
           method: get # Tipo de petición a realizar
+  getItems:
+    handler: ./services/list.getItems
+    events: # Que eventos se pueden realizar
+      - httpApi: # Eventos tipos http
+          path: /items/ # Path de acceso al evento
+          method: get # Metodo que acepta el evento http
+  createItem:
+    handler: ./services/create.createItem
+    events:
+      - httpApi:
+          path: /item/
+          method: post
+  updateItem:
+    handler: ./services/update.updateItem
+    events: # Que eventos se pueden realizar
+      - httpApi: # Eventos tipos http
+          path: /items/{id} # Path de acceso al evento. El {id} es la variable que se obtiene mediante la url (PathParametter)
+          method: put # Metodo que acepta el evento http
+  deleteItem:
+    handler: ./services/delete.deleteItem
+    events:
+      - httpApi:
+          path: /item/{id}
+          method: delete

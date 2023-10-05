@@ -1,0 +1,17 @@
+service: aws-node
+frameworkVersion: '3'
+
+provider: # Proveedor del servicio/ donde lo vamos a almacenar
+  name: aws
+  runtime: nodejs18.x
+
+plugins: # los plugins que utilicemos se deben añadir en esta sección
+  - serverless-offline
+
+functions: # las funciones de acceso a nuestra app. Esto funciona como una especie de Gateway
+  api: # Nombre de la función del api gateway
+    handler: index.handler # Encargado de manejar la petición
+    events: # Eventos esperados
+      - httpApi: # Evento tipo http (Accediendo a la función mediante una llamada http)
+          path: / # Path o dirección url de acceso a la función
+          method: get # Tipo de petición a realizar

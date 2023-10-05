@@ -1,0 +1,14 @@
+{  
+  "items": [
+    {
+      "id": 1,
+      "name": "Portatil",
+      "price": 32
+    },
+    {
+      "id": 2,
+      "name": "Mouse",
+      "price": 2
+    }
+  ]
+}
